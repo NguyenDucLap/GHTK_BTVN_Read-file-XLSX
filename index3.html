@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Danh sách học sinh đăng kí dự tuyển vòng 2</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css3.css">
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>   
+</head>
+<body>
+    <div class="nav">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Danh sách học sinh đăng kí thi tuyển</h2>
+                </div>
+            </div>    
+        </div>
+    <!-- Tải file -->
+        <div class="container">
+            <div class="row main">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header card_title"><b>Danh sách học sinh đăng kí dự tuyển</b></div>
+                        <form action="">
+                            <div class="card-body">                        
+                                <input type="file" name="myfile" id="excel_file">
+                            </div>
+                        </form>
+                    </div>
+                    <div>
+                        <button class="btn btn-success" type="button" onclick="show()">Xem</button>
+                        <button class="btn btn-danger" type="button" onclick="clickSeen()">Ẩn/Hiện</button>
+                    </div>
+                </div>
+                <!-- Add file xlss -->
+                <div class="col">
+                    <div id="excel_data" class="mt-5 table_show">
+                        <table id="table_show">
+                            <tr>
+                                <th rowspan="2">STT</th>
+                                <th rowspan="2">Trường tiểu học</th>
+                                <th rowspan="2">Quận/ Huyện</th>
+                                <th rowspan="2">Mã học sinh</th>
+                                <th rowspan="2">Lớp</th>
+                                <th rowspan="2">Họ và tên</th>
+                                <th colspan="3">Ngày sinh</th>
+                                <th rowspan="2">Giới tính</th>
+                                <th rowspan="2">Nơi sinh</th>
+                                <th rowspan="2">Dân tộc</th>
+                                <th rowspan="2">Hộ khẩu thường trú</th>
+                                <th rowspan="2">Điện thoại</th>
+                                <th colspan="8">Điểm sơ tuyển vòng 1</th>
+                                <th rowspan="2">Ghi chú</th>
+                            </tr>
+                            <tr>
+                                <th>Ngày</th>
+                                <th>Tháng</th>
+                                <th>Năm</th>
+                                <th>Tổng điểm năm lớp 1</th>
+                                <th>Tổng điểm năm lớp 2</th>
+                                <th>Tổng điểm năm lớp 3</th>
+                                <th>Tổng điểm năm lớp 4</th>
+                                <th>Tổng điểm năm lớp 5</th>
+                                <th>Tổng điểm kết quả 5 năm</th>
+                                <th>Điểm ưu tiên</th>
+                                <th>Tổng điểm sơ tuyển</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    <!-- Tìm kiếm -->
+        <div class="container">
+            <div class="row ">
+                <div class="col">
+                    <div class="search">
+                        <div class="icon_search">
+                            <button type="submit" class="btn btn-outline-primary" onclick="clickSearch()">Tìm kiếm</button>
+                            <input type="text" id="txt_search-name" placeholder="Tìm kiếm theo tên">
+                            <input type="text" id="txt_search-id" placeholder="Mã học sinh">
+                        </div>
+                        <div>
+                            <table id="table_search">
+                                <tr>
+                                    <th rowspan="2">STT</th>
+                                    <th rowspan="2">Trường tiểu học</th>
+                                    <th rowspan="2">Quận/ Huyện</th>
+                                    <th rowspan="2">Mã học sinh</th>
+                                    <th rowspan="2">Lớp</th>
+                                    <th rowspan="2">Họ và tên</th>
+                                    <th colspan="3">Ngày sinh</th>
+                                    <th rowspan="2">Giới tính</th>
+                                    <th rowspan="2">Nơi sinh</th>
+                                    <th rowspan="2">Dân tộc</th>
+                                    <th rowspan="2">Hộ khẩu thường trú</th>
+                                    <th rowspan="2">Điện thoại</th>
+                                    <th colspan="8">Điểm sơ tuyển vòng 1</th>
+                                    <th rowspan="2">Ghi chú</th>
+                                </tr>
+                                <tr>
+                                    <th>Ngày</th>
+                                    <th>Tháng</th>
+                                    <th>Năm</th>
+                                    <th>Tổng điểm năm lớp 1</th>
+                                    <th>Tổng điểm năm lớp 2</th>
+                                    <th>Tổng điểm năm lớp 3</th>
+                                    <th>Tổng điểm năm lớp 4</th>
+                                    <th>Tổng điểm năm lớp 5</th>
+                                    <th>Tổng điểm kết quả 5 năm</th>
+                                    <th>Điểm ưu tiên</th>
+                                    <th>Tổng điểm sơ tuyển</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+<script type="text/javascript" src="js3.js"></script>
+</html>
